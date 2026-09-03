@@ -1,8 +1,11 @@
 {
   "name": "e-kart",
   "version": "1.0.0",
-  "description": "",
+  "description": "CommercePilot AI - Animated AI Laptop Discovery, Ranking & Agentic Commerce Platform",
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -15,7 +18,13 @@
   "dependencies": {
     "@supabase/ssr": "^0.12.5",
     "@supabase/supabase-js": "^2.113.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/pg": "^8.23.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "autoprefixer": "^10.5.4",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
     "cors": "^2.8.6",
@@ -24,22 +33,15 @@
     "framer-motion": "^13.1.1",
     "lucide-react": "^1.39.0",
     "pg": "^8.23.0",
+    "postcss": "^8.5.26",
     "posthog-js": "^1.426.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3",
-    "tailwind-merge": "^3.6.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/canvas-confetti": "^1.9.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.5",
-    "@vitejs/plugin-react": "^6.1.1",
-    "autoprefixer": "^10.5.4",
-    "postcss": "^8.5.26",
+    "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.2.2"
-  }
+  },
+  "devDependencies": {}
 }

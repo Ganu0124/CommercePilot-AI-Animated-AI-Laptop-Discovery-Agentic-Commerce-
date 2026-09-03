@@ -1,6 +1,6 @@
 import { Client } from 'pg';
 import dotenv from 'dotenv';
-import { ALL_PRODUCTS, DEFAULT_OFFERS } from '../src/data/products.ts';
+import { ALL_PRODUCTS, DEFAULT_OFFERS } from '../src/data/products';
 
 dotenv.config();
 

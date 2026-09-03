@@ -77,9 +77,18 @@ app.post('/api/payment/verify-pin', (req, res) => {
 
 // Serve compiled static files in production
 const distPath = path.join(__dirname, 'dist');
-app.use(express.static(distPath));
+app.use(express.static(distPath, { maxAge: '1d', etag: true }));
 
-// Client-side routing fallback for React Router in Express 5
+// Return 404 JSON for unhandled API routes
+app.use('/api', (req, res) => {
+  res.status(404).json({
+    error: 'API endpoint not found',
+    path: req.originalUrl,
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Client-side routing fallback for React Router in Express
 app.use((req, res) => {
   const indexPath = path.join(distPath, 'index.html');
   res.sendFile(indexPath, (err) => {
@@ -99,10 +108,12 @@ app.use((req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+const HOST = '0.0.0.0';
+
+app.listen(PORT, HOST, () => {
   console.log(`====================================================`);
-  console.log(`🚀 CommercePilot AI Node.js Server Active on Port ${PORT}`);
-  console.log(`👉 API Health: http://localhost:${PORT}/api/health`);
-  console.log(`👉 Web Interface: http://localhost:${PORT}/`);
+  console.log(`🚀 CommercePilot AI Node.js Server Active on http://${HOST}:${PORT}`);
+  console.log(`👉 API Health: http://${HOST}:${PORT}/api/health`);
+  console.log(`👉 Web Interface: http://${HOST}:${PORT}/`);
   console.log(`====================================================`);
 });

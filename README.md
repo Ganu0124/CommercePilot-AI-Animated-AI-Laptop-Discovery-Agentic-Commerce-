@@ -123,6 +123,40 @@ flowchart TB
 
 ---
 
+## 🌐 Deploying to Render
+
+This repository is optimized for deployment on [Render](https://render.com) using either **Web Service** (full-stack Node.js) or **Static Site** (client bundle):
+
+### Option 1: Render Web Service (Recommended — Full API & App)
+1. In Render Dashboard, click **New +** $\rightarrow$ **Web Service**.
+2. Connect this GitHub repository: `https://github.com/Ganu0124/CommercePilot-AI-Animated-AI-Laptop-Discovery-Agentic-Commerce-`.
+3. Configure the service:
+   - **Runtime**: `Node`
+   - **Node Version**: Handled automatically by `.node-version` (v22.12.0)
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm start`
+4. Environment Variables (optional, defaults provided):
+   - `PORT`: `5000` (Render will bind to `0.0.0.0`)
+   - `NODE_ENV`: `production`
+   - `VITE_SUPABASE_URL`: Your Supabase URL
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase Anon Key
+   - `VITE_POSTHOG_KEY`: Your PostHog project key
+   - `VITE_POSTHOG_HOST`: `https://eu.i.posthog.com`
+5. Click **Create Web Service**.
+
+### Option 2: Render Static Site (Client Only)
+1. In Render Dashboard, click **New +** $\rightarrow$ **Static Site**.
+2. Connect this repository.
+3. Configure:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+4. SPA Routing: Automatically handled by `public/_redirects` included in this repository.
+
+### Option 3: One-Click Render Blueprint
+Simply select **New +** $\rightarrow$ **Blueprint** on Render; it will read `render.yaml` and configure everything automatically.
+
+---
+
 ## 📂 Project Structure
 
 ```

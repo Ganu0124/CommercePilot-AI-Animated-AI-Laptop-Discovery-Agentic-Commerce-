@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: commercepilot-ai
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: PORT
+        value: 5000
+      - key: VITE_SUPABASE_URL
+        value: https://jdcttsjefuerxgkqsrau.supabase.co
+      - key: VITE_SUPABASE_ANON_KEY
+        value: sb_publishable_0luJ3kSFi-o_QqWmX620Qw_uOAZa-SX
+      - key: VITE_POSTHOG_KEY
+        value: phc_pp2bEHBZdi6iA3BJ6XvPfaxXjNULCy4j88hJiaHoPZtc
+      - key: VITE_POSTHOG_HOST
+        value: https://eu.i.posthog.com
